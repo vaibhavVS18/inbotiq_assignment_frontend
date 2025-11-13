@@ -1,36 +1,120 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Frontend – Role-Based Authentication App (Next.js + TypeScript)
 
-## Getting Started
+This is the frontend for a **Role-Based Authentication Web App**, built using **Next.js**, **TypeScript**, **TailwindCSS**, and **Shadcn UI**.  
+It supports User/Admin role selection during signup, login, and a protected dashboard page.
 
-First, run the development server:
+---
 
-```bash
+## 🚀 Features
+
+- 🔐 Signup with **role selection** (User / Admin)
+- 🔑 Login using email + password
+- 🔒 Protected Dashboard page
+- 👤 Shows logged-in user info with role
+- 🎨 TailwindCSS + Shadcn UI components
+- 🔄 Auto redirect if already authenticated
+- 🌐 Fully deployable on Vercel
+- 📦 Integrates with backend API (Node.js + Express)
+
+---
+
+## 📁 Project Structure
+
+frontend/
+├── app/
+│ ├── signup/
+│ ├── login/
+│ ├── dashboard/
+│ └── layout.tsx
+├── components/
+├── lib/
+├── public/
+├── styles/
+├── package.json
+├── next.config.mjs
+└── README.md
+
+yaml
+Copy code
+
+---
+
+## 🛠 Tech Stack
+
+- **Next.js 14+ (App Router)**
+- **TypeScript**
+- **TailwindCSS**
+- **Shadcn UI**
+- **Axios for API calls**
+
+---
+
+## 🔧 Environment Variables
+
+Create a new file:
+
+### `.env.local`
+
+NEXT_PUBLIC_BACKEND_URL=<your-backend-base-url>
+
+makefile
+Copy code
+
+Example:
+
+NEXT_PUBLIC_BACKEND_URL=https://your-backend.onrender.com
+
+yaml
+Copy code
+
+---
+
+## 📦 Installation & Setup
+
+### 1️⃣ Clone the repository
+
+```sh
+git clone <your-frontend-repo-url>
+cd frontend
+2️⃣ Install dependencies
+sh
+Copy code
+npm install
+3️⃣ Run development server
+sh
+Copy code
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Now open:
+👉 http://localhost:3000
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+🏗 Build and Run in Production
+sh
+Copy code
+npm run build
+npm start
+🚀 Deployment (Vercel)
+Push project to GitHub
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Go to Vercel → New Project
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Import your GitHub repo
 
-## Learn More
+Add environment variable:
 
-To learn more about Next.js, take a look at the following resources:
+ini
+Copy code
+NEXT_PUBLIC_BACKEND_URL=<your-live-backend-url>
+Deploy 🎉
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+📌 Frontend Pages
+Route	Description
+/signup	Register with name, email, password + role
+/login	Login existing user
+/dashboard	Protected page; shows user + role
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+🔗 API Endpoints Used (from backend)
+bash
+Copy code
+POST /auth/signup
+POST /auth/login
+GET  /auth/me

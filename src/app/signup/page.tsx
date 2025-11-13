@@ -34,9 +34,7 @@ export default function RegisterPage() {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     catch (err: any) {
       console.error(err.response?.data || err.message);
-      setError(
-        err.response?.data?.message ||
-          err.response?.data?.errors?.[0]?.msg ||
+      setError(err.response?.data || err.message ||
           "Something went wrong. Please try again."
       );
     } finally {

@@ -10,6 +10,11 @@ export default function Home() {
   const { user, loading } = useContext(UserContext);
   const router = useRouter();
 
+  //  handlink react free version
+  useEffect(() => {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}`);
+  }, []);
+
   // Handle token and redirect from Google OAuth
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
